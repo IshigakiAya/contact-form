@@ -11,7 +11,7 @@
 <body>
     <header class="header">
         <div class="header__inner">
-            <a class="header__logo" href="/layouts/app.blade.php">Contact Form</a>
+            <a class="header__logo" href="/">Contact Form</a>
         </div>
     </header>
     <main>
