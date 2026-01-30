@@ -1,0 +1,38 @@
+# --- Laravel (src 配下) ---
+/src/vendor
+/src/storage/
+/src/bootstrap/cache/*.php
+/src/public/storage
+/src/storage/*.key
+/src/.env
+/src/.env.backup
+/src/.env.production
+/src/.phpunit.result.cache
+/src/.phpactor.json
+/src/auth.json
+
+# Node / Frontend
+/node_modules
+/npm-debug.log
+/yarn-error.log
+
+# Laravel 4 legacy
+/src/bootstrap/compiled.php
+/src/app/storage/
+
+# Laravel 5 legacy
+/src/public/hot
+/src/public_html/storage
+/src/public_html/hot
+
+# Docker / Local Dev
+/docker/mysql/data/*
+
+# Others
+/.vagrant
+/Homestead.yaml
+/Homestead.json
+/public/build
+/storage/pail
+*.bash_history
+.vscode/
