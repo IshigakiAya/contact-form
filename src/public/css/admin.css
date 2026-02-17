@@ -1,0 +1,273 @@
+.header__link {
+    margin: 0 auto;
+    width: 80px;
+    border: 1px solid #D9C6B5;
+    background-color: #F0F0F0;
+    font-size: 16px;
+    font-weight: 400;
+    color: #D9C6B5;
+    font-family: Inika;
+    text-decoration: none;
+    grid-column: 3;
+    /* grid-column: 1;→ 左の列に配置
+    grid-column: 2;→ 中央の列に配置
+    grid-column: 3;→ 右の列に配置 */
+}
+
+input,
+select {
+    border: 1px solid #E3DED9;
+    color: #8B7969;
+}
+
+.admin__inner {
+    margin: 32px auto 0;
+    width: 84%;
+    height: 100%;
+}
+
+/* フォーム */
+.search-form {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    /* 小さい画面の時は検索フォームを折り返す */
+    gap: 24px;
+}
+
+.search-form__keyword-input {
+    padding: 8px 12px;
+    /* placeholderが表示される最低限の幅を最小値とする */
+    min-width: 324px;
+    border: 1px solid #E3DED9;
+    background-color: #FBFBFB;
+}
+
+.search-form__gender,
+.search-form__category {
+    position: relative;
+    /* 逆三角アイコンの位置調整*/
+}
+
+/* 逆三角アイコンを作成 */
+.search-form__gender::after,
+.search-form__category::after {
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    width: 0;
+    height: 0;
+    border-top: 12px solid #BEB1A6;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    content: "";
+    transform: translateY(-50%);
+    pointer-events: none;
+    /* ::after で作ったアイコンは「セレクトボックスの上に乗っている」状態。「pointer-events: none;」を書かないと、アイコンの真上をクリックした時にセレクトボックスが開かないという現象が起きる */
+}
+
+.search-form__gender-select,
+.search-form__category-select {
+    padding: 8px 12px;
+    height: 100%;
+    background-color: #F4F4F4;
+    appearance: none;
+    /* セレクトボックスを開くデフォルトのアイコンを非表示にする */
+}
+
+.search-form__gender-select {
+    min-width: 96px;
+}
+
+.search-form__category-select {
+    min-width: 220px;
+}
+
+.search-form__date {
+    position: relative;
+    padding: 8px 12px;
+    min-width: 140px;
+    border: 1px solid #E3DED9;
+    background-color: #F4F4F4;
+}
+
+.search-form__date::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: auto;
+    height: auto;
+    background: transparent;
+}
+
+.search-form__date::after {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    width: 0;
+    height: 0;
+    border-top: 12px solid #BEB1A6;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    content: "";
+    transform: translateY(-50%);
+}
+
+.search-form__actions {
+    display: flex;
+    gap: 24px;
+}
+/* 送信ボタン・エクスポートボタン・リセットボタンのかたまり */
+
+.search-form__search-btn,
+.search-form__reset-btn {
+    padding: 12px;
+    width: 90px;
+}
+
+.search-form__reset-btn {
+    background-color: #D9C6B5;
+    text-decoration: none;
+}
+
+.export-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 32px;
+}
+/* エクスポートボタン・ページネーションのかたまり */
+
+.export__btn {
+    background-color: #E1DBD6;
+    color: #8B7969;
+    font-weight: 400;
+}
+
+/* テーブル */
+.admin__table {
+    margin-top: 16px;
+    width: 100%;
+    border-collapse: collapse;
+    /* HTMLテーブルの枠線（border）をくっつけて1本に見せるため */
+}
+
+.admin__row {
+    border: 1px solid #E0DFDE;
+}
+
+.admin__label,
+.admin__data {
+    padding: 16px 8px;
+}
+
+.admin__label:first-of-type,
+.admin__data:first-of-type {
+    padding-left: 48px;
+}
+
+.admin__label:last-of-type,
+.admin__data:last-of-type {
+    padding-right: 48px;
+}
+
+.admin__label {
+    background-color: #8B7969;
+    color: #FFF;
+    text-align: left;
+    font-weight: 400;
+}
+
+.admin__detail-btn {
+    padding: 8px 12px;
+    border: 1px solid #D9C6B5;
+    background-color: #F0F0F0;
+    color: #D9C6B5;
+    text-decoration: none;
+}
+
+/* モーダル */
+.modal {
+    position: fixed;
+    /* 画面のスクロールに関係なく、画面の決まった場所に固定 */
+    top: 0;
+    left: 0;
+    /* 画面の左上に配置 */
+    width: 100%;
+    height: 100%;
+    /* 画面全体を覆うサイズ */
+    visibility: hidden;
+    opacity: 0;
+    /* 最初は非表示状態にするため */
+}
+
+.modal:target {
+    visibility: visible;
+    opacity: 1;
+}
+/* :target は、リンクのハッシュ（例：#modal1）が一致したときに適用。 ここではadmin.bladeの <a class="admin__detail-btn" href="#{{$contact->id}}">詳細</a>をクリックするとモーダルが表示される。*/
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+/* 背景部分（黒っぽく暗くなる層）を作るためのエリア。 position: absolute で .modal の中で画面全体に広がるように配置。 */
+
+.modal__inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    transform: translate(-50%, -50%);
+    /* モーダルの「中身」（白いウィンドウ）部分。 画面の中心に表示するために、top: 50%, left: 50% にして、transform: translate(-50%, -50%) で真ん中にずらしてる。 枠線や影で立体的に見せてる。 */
+    border: 1px solid #8B7969;
+    background-color: #fff;
+    box-shadow: 4px 4px 4px rgba(139, 121, 105, 0.25);
+}
+
+.modal__content {
+    position: relative;
+    margin: 10px auto;
+    width: 80%;
+    height: 80%;
+}
+
+.modal-form__group {
+    display: grid;
+    margin-top: 32px;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    align-items: center;
+}
+/* フォームの1行（ラベルと入力欄）を2列でレイアウトする。 左：ラベル（1fr） 右：入力欄（2fr） */
+
+.modal-form__label {
+    font-weight: bold;
+}
+
+.modal-form__delete-btn {
+    margin: 30px auto;
+    background-color: #BA370D;
+    color: #FFF;
+}
+
+.modal__close-btn {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #8B7969;
+    border-radius: 50%;
+    color: #8B7969;
+    text-align: center;
+    text-decoration: none;
+}
+/* モーダル右上の「×」ボタン。 border-radius: 50%で丸くしている。 */

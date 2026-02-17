@@ -1,0 +1,102 @@
+html,body {
+    height: 100%;
+}
+/* ページ全体に背景色をつけたり、フッターを画面下部に固定したりしたいときに必要な基礎設定 */
+
+body,textarea,input {
+    color: #8B7969;
+}
+/* body全体・textareaフォームとinputフォーム(入力した文字)の色付け */
+
+textarea::placeholder,
+input::placeholder {
+    color: #BEB1A6;
+}
+/* textareaフォーム・inputフォームのplaceholderの文字を色付け */
+
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* ヘッダー */
+.header {
+    display: grid;
+    /* 要素を「グリッドレイアウト」にする。これにより、縦横のマス目状に配置ができる。 */
+    align-items: center;
+    text-align: center;
+    border: 1px solid #E0DFDE;
+    /* 枠線をつける。色は薄いグレー（#E0DFDE）線の太さは 1px */
+    font-family: Inika;
+    grid-template-columns: repeat(3, 1fr);
+    /* 横方向に「3等分（3列）」のグリッドにする。 1fr は「等しい比率」の意味なので、3つのエリアが横に均等に並ぶ */
+}
+
+.header__logo {
+    font-weight: 400;
+    font-size: 40px;
+    grid-column: 2;
+    /* grid-column: 1;→ 左の列に配置
+    grid-column: 2;→ 中央の列に配置
+    grid-column: 3;→ 右の列に配置 */
+}
+
+/* コンテンツ */
+.content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* justify-content: center; */
+    /* flex-grow: 1 は、「要素が空いてるスペースを可能な限り伸びて埋めるようにする」ための指定。縦方向でも横方向でも、flex-direction に合わせて効く*/
+}
+
+.content__heading {
+    text-align: center;
+    font-weight: 100;
+    font-size: 32px;
+    font-family: serif;
+}
+
+/* ボタン */
+.btn {
+    display: block;
+    padding: 8px 32px;
+    border: none;
+    background-color: #82756A;
+    color: #FFF;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* ページネーション */
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.pagination li:not(.active) {
+    border: 1px solid #E0DFDE;
+    padding: 4px 12px;
+}
+
+.pagination li:not(:last-child) {
+    border-right: none;
+}
+
+.pagination a {
+    color: #8B7969;
+    text-decoration: none;
+}
+
+.pagination__link {
+    text-decoration: none;
+}
+
+.active {
+    padding: 4px 12px;
+    border: 1px solid #8B7969;
+    background-color: #8B7969;
+    color: #FFF;
+}

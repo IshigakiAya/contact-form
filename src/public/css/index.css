@@ -1,0 +1,124 @@
+.contact-form__content {
+    margin: 0 auto;
+    max-width: 1500px;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-form__header {
+    margin: 20 auto;
+    font-family: Inika;
+    font-size: 35px;
+    font-weight: 400;
+    color: #8B7969;
+    text-align: center;
+}
+
+.form {
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.form__group {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.form-group-title {
+    width: 35%;
+    padding-top: 10px;
+    font-family: Arial;
+    font-size: 15px;
+    color: #8B7969;
+}
+
+.form__label--required {
+    color: red;
+    margin-left: 5px;
+}
+
+.form__group-content {
+    flex: 1;
+    width: 65%;
+}
+
+.form__input--text {
+    display: flex;
+    flex: 1;
+    width: 65%;
+}
+
+.form__input--text .form__input {
+    width: 65%;
+    flex: 1;
+}
+
+.form__input--text.single .form__input {
+    width: 100%;
+    max-width: 1000px;
+}
+
+.form__input--text,
+.form__input--radio,
+.form__input--select,
+.form__input--textarea {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.form__input,
+.form__select,
+textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px;
+    border: none;
+    background-color: #F6F6F6;
+    font-size: 14px;
+    box-sizing: border-box;
+    appearance: none;
+}
+
+.form__input--select {
+    position: relative;
+    /* 逆三角アイコンの位置調整 */
+}
+
+/* 逆三角アイコンを作成 */
+.form__input--select::after {
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    width: 0;
+    height: 0;
+    border-top: 12px solid #BEB1A6;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    content: "";
+    transform: translateY(-50%);
+    pointer-events: none;
+    /* ::after で作ったアイコンは「セレクトボックスの上に乗っている」状態。「pointer-events: none;」を書かないと、アイコンの真上をクリックした時にセレクトボックスが開かないという現象が起きる */
+}
+
+.form__error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.form__button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form__button-submit {
+    padding: 10px 30px;
+    font-size: 15px;
+    background-color: #82756A;
+    color: #D9C6B5;
+    border: none;
+    cursor: pointer;
+}
